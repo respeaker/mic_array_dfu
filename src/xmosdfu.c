@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "libusb.h"
 
 /* the device's vendor and product id */
@@ -86,13 +87,13 @@ static int find_xmos_device(unsigned int id, unsigned int list)
                 }
                 else
                 {
-                    libusb_config_descriptor *config_desc = NULL;
+                    struct libusb_config_descriptor *config_desc = NULL;
                     libusb_get_active_config_descriptor(dev, &config_desc);
                     if (config_desc != NULL)
                     {
                         for (int j = 0; j < config_desc->bNumInterfaces; j++)
                         {
-                            const libusb_interface_descriptor *inter_desc = ((libusb_interface *)&config_desc->interface[j])->altsetting;
+                            const struct libusb_interface_descriptor *inter_desc = ((struct libusb_interface *)&config_desc->interface[j])->altsetting;
                             if (inter_desc->bInterfaceClass == 0xFE && inter_desc->bInterfaceSubClass == 0x1)
                             {
                                 XMOS_DFU_IF = j;

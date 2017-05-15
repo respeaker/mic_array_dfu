@@ -1,5 +1,5 @@
 all:
-	gcc -g  src/xmosdfu.c -o dfu -lusb-1.0
+	gcc -g  src/xmosdfu.c -o dfu `pkg-config --cflags --libs libusb-1.0`
 
 
 clean:
