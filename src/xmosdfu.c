@@ -96,6 +96,10 @@ static int find_xmos_device(unsigned int id, unsigned int list)
                             if (inter_desc->bInterfaceClass == 0xFE && inter_desc->bInterfaceSubClass == 0x1)
                             {
                                 XMOS_DFU_IF = j;
+                                if (libusb_kernel_driver_active(devh, j))
+                                {
+                                    libusb_detach_kernel_driver(devh, j);
+                                }
                             }
                         }
                     }
