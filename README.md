@@ -13,7 +13,7 @@ sudo apt-get install libusb-1.0-0-dev
 git clone https://github.com/respeaker/mic_array_dfu.git
 cd mic_array_dfu
 make
-./dfu --download respeaker_mic_array_8ch_raw.bin
+sudo ./dfu --download respeaker_mic_array_8ch_raw.bin
 ```
 
 
