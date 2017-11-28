@@ -16,6 +16,17 @@ make
 sudo ./dfu --download respeaker_mic_array_8ch_raw.bin
 ```
 
+## On OSX 
+tested on High Sierra
+```
+brew update
+brew install libusb
+
+git clone https://github.com/respeaker/mic_array_dfu.git
+cd mic_array_dfu
+make
+sudo ./dfu --download respeaker_mic_array_8ch_raw.bin
+```
 
 ### Troubleshooting
 1. If you get the following error message when running `dfu`, try to use another USB port with the microphone array.
